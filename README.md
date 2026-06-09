@@ -30,14 +30,15 @@ This project demonstrates professional-grade Java development with automated war
 ```
 Smart_Warehouse_Inventory_Tracker/
 │
-├── README.md                          # Project documentation
-├── .gitignore                         # Git ignore rules
-│
+├── README.md                               # Project documentation
+├── .gitignore                              # Git ignore rules
+├── Project.pdf                             # Detailed project report
+├── Smart_Warehouse_Inventory_Tracker.pptx  # Presentation slides
 └── src/
-    ├── Product.java                   # Product entity class
-    ├── InventoryManager.java          # Inventory manager class
-    ├── WarehouseInventoryTracker.java # Main application entry point
-    └── inventory_report.txt           # Sample output
+    ├── Product.java                        # Product entity class
+    ├── InventoryManager.java               # Inventory manager class
+    ├── WarehouseInventoryTracker.java      # Main application entry point
+    └── inventory_report.txt                # Sample output
 ```
 
 ---
@@ -364,122 +365,6 @@ Goodbye!
 
 ---
 
-## ❓ Common Viva Questions & Answers
-
-### **Q1: What is Encapsulation?**
-**A:** Encapsulation is bundling data (attributes) and methods together, and hiding internal details. We use `private` attributes with `public` getter/setter methods.
-
-```java
-private String productName;        // Hidden
-public String getProductName() {   // Controlled access
-    return this.productName;
-}
-```
-
----
-
-### **Q2: What is the difference between Array and ArrayList?**
-**A:** 
-- **Array:** Fixed size, must declare size before creating
-- **ArrayList:** Dynamic size, grows automatically
-
-We used ArrayList because we don't know how many products will be added.
-
----
-
-### **Q3: What does the `this` keyword mean?**
-**A:** `this` refers to the current object. Used to access object variables and distinguish them from local variables.
-
-```java
-public Product(String productName, int quantity, int threshold) {
-    this.productName = productName;  // object's variable = parameter
-}
-```
-
----
-
-### **Q4: Why is the `findProduct()` method private?**
-**A:** Because it's a helper method only used internally by InventoryManager. Other classes don't need to use it directly.
-
----
-
-### **Q5: How does low stock alert work?**
-**A:** 
-```java
-public boolean isLowStock() {
-    return this.quantity < this.threshold;  // Compare quantity to threshold
-}
-
-// In checkLowStock():
-if (product.isLowStock()) {
-    System.out.println("ALERT!");  // Show alert if true
-}
-```
-
----
-
-### **Q6: What happens if user enters invalid input?**
-**A:** We handle it with try-catch:
-```java
-try {
-    int choice = scanner.nextInt();
-    return choice;
-} catch (Exception e) {
-    scanner.nextLine();  // Clear invalid input
-    return -1;          // Return invalid value
-}
-// Main menu checks if -1, shows "Invalid choice"
-```
-
----
-
-### **Q7: Why use Scanner for input?**
-**A:** Scanner is a built-in Java class that reads user input from console:
-```java
-Scanner scanner = new Scanner(System.in);
-String name = scanner.nextLine();   // Read text
-int number = scanner.nextInt();     // Read integer
-```
-
----
-
-### **Q8: Explain the menu flow**
-**A:** 
-```java
-while (running) {           // Loop until exit
-    displayMenu();          // Show options
-    int choice = getUserChoice();
-    
-    switch (choice) {       // Check choice
-        case 1: handleAddProduct(); break;
-        case 2: manager.displayInventory(); break;
-        // ... more cases
-        case 7: running = false; break;  // Exit loop
-    }
-}
-```
-
----
-
-### **Q9: What is the purpose of `scanner.nextLine()`?**
-**A:** After `scanner.nextInt()`, there's a newline character left in the buffer. `scanner.nextLine()` clears it so the next input works correctly.
-
-```java
-int number = scanner.nextInt();  // Leaves '\n' in buffer
-scanner.nextLine();              // Clear it!
-String text = scanner.nextLine(); // Now works properly
-```
-
----
-
-### **Q10: Why do we close the scanner at the end?**
-**A:** To free up system resources. It's good practice to close input streams:
-```java
-scanner.close();  // Release the scanner resource
-```
-
----
-
 ## 🎯 Key Takeaways
 
 | Concept | What It Does | Where Used |
@@ -606,8 +491,8 @@ git commit -m "docs: Update README with new features"
 
 **Rajeev Raj**
 - 🔗 GitHub: [@imrajeevraj](https://github.com/imrajeevraj)
-- 📧 Email: [Your Email]
-- 💼 LinkedIn: [Your LinkedIn]
+- 📧 Email: rajeev.ranjan948@hotmail.com
+- 💼 LinkedIn: https://www.linkedin.com/in/rajeev-ranjan-1046291a4/
 
 ---
 
