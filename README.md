@@ -13,15 +13,19 @@ A **console-based Inventory Management System** designed as an educational Objec
 This project demonstrates professional-grade Java development with automated warehouse inventory tracking, real-time alerts for low-stock conditions, and comprehensive reporting capabilities.
 
 **Key Features:**
-- ✅ Add products to inventory
-- ✅ Display all products with status
-- ✅ Sell products (reduce stock)
-- ✅ Restock products (increase stock)
+- ✅ Add products with unique product IDs
+- ✅ Display inventory with detailed product information
+- ✅ Search products by name or ID
+- ✅ Sell products (reduce stock with transaction tracking)
+- ✅ Restock products (increase stock efficiently)
 - ✅ Remove products from inventory
-- ✅ Automated low-stock alert generation
-- ✅ Comprehensive inventory reports
+- ✅ Automated low-stock alert generation with restock suggestions
+- ✅ Inventory Dashboard with comprehensive metrics
+- ✅ Sort products by name, quantity, or price
+- ✅ Export inventory reports
 - ✅ Encapsulation and data hiding
-- ✅ Dynamic collection management
+- ✅ Dynamic collection management with ArrayList
+- ✅ Price tracking and inventory valuation
 
 ---
 
@@ -292,74 +296,145 @@ java -cp bin WarehouseInventoryTracker
 ```
 
 ### **Step 4: Interact with the Program**
-- Follow the menu options
-- Enter choices 1-7 to interact
-- Select option 7 to exit
+- Follow the menu options (1-11)
+- Enter your choice to execute operations
+- Select option 11 to exit the application
 
 ---
 
 ## 📊 Sample Output & Session
 
-### **Output:**
+### **Main Menu**
 ```
 ================================================================================
-     🏢 WAREHOUSE INVENTORY TRACKER - BEGINNER PROJECT
+     SMART WAREHOUSE INVENTORY TRACKER – JAVA PROJECT
 ================================================================================
+================================================================================
+                     MAIN MENU – SELECT AN OPTION
+================================================================================
+1.  Add Product
+2.  Display Inventory
+3.  Search Product
+4.  Sell Product
+5.  Restock Product
+6.  Remove Product
+7.  Low Stock Alert
+8.  Dashboard
+9.  Sort Products
+10. Export Report
+11. Exit
+================================================================================
+Enter your choice (1-11): 
+```
 
-================================================================================
-                            MAIN MENU
-================================================================================
-1. ➕ Add Product
-2. 📋 Display Inventory
-3. 🛒 Sell Product
-4. 📦 Restock Product
-5. 🗑️  Remove Product
-6. ⚠️  Check Low Stock
-7. ❌ Exit
-================================================================================
-Enter your choice (1-7): 1
+### **Add New Product**
+```
+========================================================
+                  ADD NEW PRODUCT
+========================================================
+Enter product name: Notebook
+Enter quantity: 50
+Enter low stock threshold: 5
+Enter price per unit (Rs.): 100
+[SUCCESS] Product added successfully!
+ID: P101 | Name: Notebook
+========================================================
+```
 
---- Add New Product ---
+### **Inventory Dashboard**
+```
+========================================================
+                 INVENTORY DASHBOARD
+========================================================
+Total Products        : 6
+Total Units           : 300
+Low Stock Items       : 0
+Out of Stock Items    : 0
+Total Inventory Value : Rs.2698000.00
+========================================================
+
+TOP SELLING PRODUCT:
+     No sales recorded yet.
+========================================================
+```
+
+### **Low Stock Alert Check**
+```
+========================================================================
+                      LOW STOCK ALERT CHECK
+========================================================================
+[ALERT] P107 | Ballpen | Current: 4 | Minimum: 5
+   -> Suggested Restock: 6 units
+========================================================================
+
+Total low-stock items: 1
+========================================================================
+```
+
+### **Complete Session Example**
+```
+Enter your choice (1-11): 1
+
+========================================================
+                  ADD NEW PRODUCT
+========================================================
 Enter product name: Laptop
 Enter quantity: 50
 Enter low stock threshold: 10
-✅ Product added: Laptop
-```
+Enter price per unit (Rs.): 50000
+[SUCCESS] Product added successfully!
+ID: P101 | Name: Laptop
+========================================================
 
-### **Continue Session:**
-```
-Enter your choice (1-7): 1
+Enter your choice (1-11): 2
 
---- Add New Product ---
-Enter product name: Mouse
-Enter quantity: 5
-Enter low stock threshold: 20
-✅ Product added: Mouse
+========================================================
+              WAREHOUSE INVENTORY DISPLAY
+========================================================
+ID    | Product Name    | Qty  | Threshold | Price    | Status
+------|-----------------|------|-----------|----------|--------
+P101  | Laptop          |  50  |    10     | 50000    | ✅ OK
+P102  | Mouse           |   5  |    20     |   500    | ⚠️ LOW
+P103  | Keyboard        |  30  |    15     |  1500    | ✅ OK
+P104  | Monitor         |   3  |    10     | 15000    | ⚠️ LOW
+========================================================
+Total Products: 4
+========================================================
 
-Enter your choice (1-7): 2
+Enter your choice (1-11): 7
 
-================================================================================
-                        WAREHOUSE INVENTORY
-================================================================================
-1. Laptop              | Qty:    50 | Threshold:    10 | ✅ OK
-2. Mouse               | Qty:     5 | Threshold:    20 | ⚠️  LOW STOCK
-================================================================================
-Total Products: 2
-================================================================================
-
-Enter your choice (1-7): 6
-
-================================================================================
+========================================================================
                       LOW STOCK ALERT CHECK
-================================================================================
-⚠️  ALERT: Mouse | Current: 5 | Minimum: 20
+========================================================================
+[ALERT] P102 | Mouse | Current: 5 | Minimum: 20
+   -> Suggested Restock: 15 units
 
-🚨 Total low-stock items: 1
-================================================================================
+[ALERT] P104 | Monitor | Current: 3 | Minimum: 10
+   -> Suggested Restock: 7 units
+========================================================================
 
-Enter your choice (1-7): 7
+Total low-stock items: 2
+========================================================================
 
-✅ Thank you for using Warehouse Inventory Tracker!
+Enter your choice (1-11): 8
+
+========================================================
+                 INVENTORY DASHBOARD
+========================================================
+Total Products        : 4
+Total Units           : 88
+Low Stock Items       : 2
+Out of Stock Items    : 0
+Total Inventory Value : Rs.2828500.00
+========================================================
+
+TOP SELLING PRODUCT:
+     No sales recorded yet.
+========================================================
+
+Enter your choice (1-11): 11
+
+✅ Thank you for using Smart Warehouse Inventory Tracker!
 Goodbye!
 ```
 
@@ -374,10 +449,10 @@ Goodbye!
 | **Encapsulation** | Hide data, expose methods | private attributes, public getters |
 | **ArrayList** | Dynamic list of objects | Store multiple products |
 | **Method** | Action/function | addProduct(), sellProduct() |
-| **Constructor** | Initialize object | `Product(name, qty, threshold)` |
+| **Constructor** | Initialize object | `Product(name, qty, threshold, price)` |
 | **Loop** | Repeat code | Display all products, menu loop |
 | **Conditional** | If-else, switch | Check stock, menu choices |
-| **Scanner** | Read user input | Get product name, quantity |
+| **Scanner** | Read user input | Get product details |
 
 ---
 
@@ -394,22 +469,35 @@ Goodbye!
 
 ## 💡 Extra Learning Tips
 
-1. **Modify the code:** Try adding new features like:
-   - Update product price
-   - Search by product name
-   - Show total inventory value
+1. **Explore All Features:** Try each menu option:
+   - Add multiple products with varying prices
+   - Use Dashboard to see total inventory value
+   - Sort products by different criteria
+   - Export reports and view data
 
-2. **Experiment:** Change threshold values and test low stock alerts
+2. **Modify the code:** Try adding new features like:
+   - Filter products by price range
+   - Calculate profit margins
+   - Track customer purchase history
+   - Generate sales reports
 
-3. **Debug:** Add print statements to see what's happening:
+3. **Experiment with data:** Test with:
+   - Different product categories
+   - Bulk product additions
+   - Various threshold levels
+   - Price adjustments
+
+4. **Debug:** Add print statements to see what's happening:
    ```java
-   System.out.println("DEBUG: quantity = " + quantity);
+   System.out.println("DEBUG: Product ID = " + productId);
+   System.out.println("DEBUG: Total Value = " + totalValue);
    ```
 
-4. **Test edge cases:**
-   - What if someone tries to add negative quantity?
-   - What if they sell more than available?
+5. **Test edge cases:**
+   - What if someone tries to add negative price?
+   - What if they sell more than available stock?
    - What if inventory is empty?
+   - What happens with duplicate product names?
 
 ---
 
