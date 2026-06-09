@@ -1,0 +1,58 @@
+# Compiled Java class files
+*.class
+
+# Java package files
+*.jar
+*.war
+*.ear
+
+# Documentation and Report Files
+*.pdf
+*.docx
+*.doc
+
+# Project Documentation (Exclude from repo)
+QUICK_START.md
+README.md
+SAMPLE_OUTPUT.txt
+VIVA_PREP.md
+problem.pdf
+Project.pdf
+Report.docx
+Warehouse_Inventory_Tracker_Report.md
+Warehouse_Inventory_Tracker_Report.pdf
+
+# IDE and Editor Files
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS-specific Files
+.DS_Store
+Thumbs.db
+.classpath
+.project
+.settings/
+
+# Build directories
+bin/
+build/
+dist/
+target/
+
+# Temporary and generated files
+*.log
+*.tmp
+*.temp
+.tmp/
+
+# Cache directories
+__pycache__/
+.cache/
+
+# Environment files
+.env
+.env.local
